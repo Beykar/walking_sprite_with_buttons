@@ -21,67 +21,73 @@
         walkTimeOut,
 
 
+        walkRight       =   function(){
+            if (leftMargin < 350) {
+                if (i < picArrayRight.length) {
+                    leftMargin += 10;
+                    walker.src = path + picArrayRight[i];
+                    walker.style.marginLeft = leftMargin + "px";
 
-        walkRight = function () {
+                    i++;
 
-                if (leftMargin < 350) {
+                } else {
+                    i = 0;
+                }
+                walkTimeOut = setTimeout(function () {
+                    walkRight();
+                }, 100);
+            }
+            else {
 
-                    if (i < picArrayRight.length) {
-                        leftMargin += 10;
-                        walker.src = path + picArrayRight[i];
-                        walker.style.marginLeft = leftMargin + "px";
+                walkLeft();
+            }
+        },//walkRight
 
-                        i++;
+        walkLeft       =    function(){
+            if (leftMargin > 0) {
+                if (i < picArrayLeft.length) {
+                    leftMargin -= 10;
+                    walker.style.marginLeft = leftMargin + "px";
+                    walker.src = path + picArrayLeft[i];
+                    i++;
 
-                    } else {
-                        i = 0;
-                    }
-                    walkTimeOut = setTimeout(function () {
-                        walkRight();
-                    }, 100);
+                } else {
+                    i = 0;
+                }
+                walkTimeOut = setTimeout(function () {
+                    walkLeft();
+                }, 100);
+            }
+            else {
+                walkRight();
+            }
+        },//walkLeft
 
+        walk = function () {
+            var
+              str = walker.src;
+                if (str.indexOf("right") >=0){
+                    walkRight();
                 } else {
                     walkLeft();
                 }
-            },//walkRight
+            },//walk
 
-            walkLeft = function () {
-                if (leftMargin > 0) {
-                    if (i < picArrayLeft.length) {
-                        leftMargin -= 10;
-                        walker.style.marginLeft = leftMargin + "px";
-                        walker.src = path + picArrayLeft[i];
-                        i++;
 
-                    } else {
-                        i = 0;
-                    }
-                    walkTimeOut = setTimeout(function () {
-                        walkLeft();
-                    }, 100);
-                } else {
-                    walkRight();
-                }
-
-            },//walkLeft
 
 
             stopWalk  =   function(){
                 clearTimeout(walkTimeOut);
 
 
-            }//stopWalk
 
-            /*walk    =   function (){
-                if (picArrayRight.includes())
-
-            }//walk*/
+            },//stopWalk
 
 
        bindBtns    =   function(){
 
                     startBtn.addEventListener("click", function () {
-                        walkRight();
+                        walk();
                         startBtn.disabled = true;
                         stopBtn.disabled = false;
 

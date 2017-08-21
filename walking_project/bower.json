@@ -1,0 +1,26 @@
+{
+  "name": "walking_sprite_with_buttons",
+  "homepage": "https://github.com/Beykar/walking_sprite_with_buttons",
+  "authors": [
+    "Beykar <hamidkhaldi@aol.com>"
+  ],
+  "description": "wlkaing sprites project using JS & jQuery",
+  "main": "index.html",
+  "keywords": [
+    "Walking",
+    "sprites",
+    "JS",
+    "jQuery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
