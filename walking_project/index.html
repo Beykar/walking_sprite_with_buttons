@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>walking project</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
+    <script src="../bower_components/modernizr/src/Modernizr.js"></script>
 </head>
 <body>
 <div id="wrapper">
     <header>
-        <div id="imgContainer">
+            <h1>Walking Sprites</h1>
+    </header>
+    <main class="container-fluid">
+        <div class="row">
+            <div id="imgContainer" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <img id="walker" src="images/walking_sprite_2/right0.jpg" width="76" height="109" alt="walking towards the right">
         </div><!--/imgContainer-->
-        <span>
+        <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <button id="startBtn">Start</button>
                 <button id="stopBtn">Stop</button>
             </span>
-    </header>
-    <main></main>
+        </div>
+
+    </main>
     <footer></footer>
 </div><!--/wrapper-->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="script.js"></script>

@@ -21,8 +21,63 @@
         walkTimeOut,
 
 
+
+        canv = document.getElementById('canv'),
+
+        drawONcanvas    =   function(){
+
+            var ctx = canv.getContext('2d');
+
+            if (ctx != null) {
+
+                ctx.fillStyle = "yellow";
+                ctx.fillRect(20, 20, 50, 50);
+
+                ctx.lineWidth = 6;
+                ctx.strokeStyle = "rgba(0,0,254, .8)";
+                ctx.strokeRect(20, 20, 50, 50);
+                ctx.fillStyle = "pink";
+                ctx.fillRect(90, 20, 50, 50);
+
+                ctx.lineWidth = 6;
+                ctx.strokeStyle = "orange";
+                ctx.strokeRect(160, 20, 50, 50);
+
+                ctx.clearRect(10, 40, 220, 10);
+
+
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.moveTo(100, 200);
+                ctx.lineTo(200, 200);
+                ctx.stroke();
+
+                ctx.strokeStyle = "blue";
+                ctx.fillStyle = "red";
+                ctx.lineWidth = 5;
+
+                // stroke a quarter arc
+                ctx.beginPath();
+                ctx.arc(300,150,100,1.5*Math.PI,2*Math.PI);
+                ctx.stroke();
+
+                // stroke a three-quarter arc, going anti-clockwise
+                ctx.beginPath();
+                ctx.arc(600,150,100,0,1.5*Math.PI,false);
+                ctx.stroke();
+
+                // stroke and fill a circle
+                ctx.beginPath();
+                ctx.arc(850,150,100,0,2*Math.PI);
+                ctx.fill();
+                ctx.stroke();
+            }
+
+        },//drawOnCanvas
+
+
         walkRight       =   function(){
-            if (leftMargin < 350) {
+            if (leftMargin < 760) {
                 if (i < picArrayRight.length) {
                     leftMargin += 10;
                     walker.src = path + picArrayRight[i];
@@ -103,6 +158,8 @@
 
         init = function () {
                 bindBtns();
+                drawONcanvas();
+
 
         };//init
 
